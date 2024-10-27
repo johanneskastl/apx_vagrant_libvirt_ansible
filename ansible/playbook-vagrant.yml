@@ -32,3 +32,6 @@
 
 - name: 'Run playbook-all_nodes-install_apx.yml'
   ansible.builtin.import_playbook: playbook-all_nodes-install_apx.yml
+
+- name: 'Run playbook-all_nodes-point_DOCKER_HOST_to_podman_rootless.yml'
+  ansible.builtin.import_playbook: playbook-all_nodes-point_DOCKER_HOST_to_podman_rootless.yml
