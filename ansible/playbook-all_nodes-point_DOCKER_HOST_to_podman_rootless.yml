@@ -1,0 +1,27 @@
+---
+- name: 'Configure DOCKER_HOST to talk to the podman rootless socket'
+  hosts: 'all'
+  gather_facts: true
+  become: false
+
+  tasks:
+
+    - name: 'Set DOCKER_HOST_and DOCKER_SOCK in /home/vagrant/.profile'
+      ansible.builtin.copy:
+        dest: '/home/vagrant/.profile'
+        content: |
+          test -z "$PROFILEREAD" && . /etc/profile || true
+          DOCKER_HOST="unix:///run/user/${UID}/podman/podman.sock"
+          export DOCKER_HOST
+          DOCKER_SOCK="/run/user/${UID}/podman/podman.sock"
+          export DOCKER_SOCK
+        owner: 'vagrant'
+        group: 'vagrant'
+        mode: '0644'
+
+    - name: 'Start the podman socket (as unprivileged user)'
+      ansible.builtin.systemd:
+        name: 'podman.socket'
+        state: 'started'
+        enabled: true
+        scope: 'user'
