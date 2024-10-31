@@ -6,6 +6,8 @@ manager](https://github.com/Vanilla-OS/apx) on it.
 Default OS is openSUSE Tumbleweed. Although that can be changed in the
 Vagrantfile, please beware that this will break the Ansible provisioning.
 
+There is another branch `Leap_15.6` that uses ... openSUSE Leap 15.6.
+
 ## Vagrant
 
 1. You need vagrant obviously. And ansible. And git...
