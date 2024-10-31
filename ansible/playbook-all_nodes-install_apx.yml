@@ -8,4 +8,5 @@
     - role: 'johanneskastl.install_one_or_more_packages'
       packages_to_be_installed:
         - apx
+        - apx-bash-completion
         - podman
