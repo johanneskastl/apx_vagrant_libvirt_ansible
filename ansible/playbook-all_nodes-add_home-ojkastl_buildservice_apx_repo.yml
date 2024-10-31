@@ -7,7 +7,7 @@
   roles:
     - role: 'johanneskastl.add_zypper_repository'
       repository_name: 'home-ojkastl_buildservice-apx'
-      repository_baseurl: "https://download.opensuse.org/repositories/home:/ojkastl_buildservice:/apx/openSUSE_Factory/"
+      repository_baseurl: "https://download.opensuse.org/repositories/home:/ojkastl_buildservice:/apx/openSUSE_Tumbleweed/"
       auto_import_keys: '1'
       when:
         - ansible_distribution == "openSUSE Tumbleweed"
